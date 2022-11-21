@@ -47,7 +47,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
+    'colorfield',
+    'pages',
+    'footer',
     'activities',
+
+
 ]
 
 MIDDLEWARE = [
@@ -65,7 +70,7 @@ ROOT_URLCONF = 'main_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,12 +133,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = 'staticfiles/'
-CKEDITOR_UPLOAD_PATH = "uploads/"
-# Base url to serve media files
 MEDIA_URL = '/media/'
-
-# Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'language': 'FR',
+        'defaultLanguage': 'FR',
+        'toolbar': 'full',
+    },
+}
 
 STATICFILES_DIRS = [
 ]
@@ -143,3 +152,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TIME_INPUT_FORMATS = ['%H:%M']
+
