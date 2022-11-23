@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Document{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body class="container">
+<header class="" style="background-color: #4ac1f7">
+    {% block header_content %}
+        <img class="image is-128x128" src="{% static 'img/logo.png' %}" alt="logo" class="column is-2">
+    {% endblock %}
+</header>
+<nav class="is-center is-full navbar" role="navigation" style="background-color: #9ad717">
+    {% block nav_content %}
+        {% include 'includes/navbar/navbar.html' %}
+    {% endblock %}
+</nav>
+<div class="columns">
+    <aside class="column is-one-quarter" style="background-color: gold">
+        {% block aside_content %}
+            <p>
+                aside
+            </p>
+        {% endblock %}
+    </aside>
+    <main class="column is-three-quarters" style="background-color: #c4dce8">
+        {% block main_content %}
+            <p>
+                main
+            </p>
+        {% endblock %}
+    </main>
+</div>
+
+<footer class="footer" style="background-color: slateblue">
+    {% block footer_content %}
+        {% include 'includes/footer/footer.html' %}
+    {% endblock %}
+</footer>
+</body>
+</html>

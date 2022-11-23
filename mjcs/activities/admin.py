@@ -32,3 +32,4 @@ class ActivityTypeAdmin(admin.ModelAdmin):
 
 admin.site.register(Activity, ActivityAdmin)
 admin.site.register(ActivityType, ActivityTypeAdmin)
+admin.site.register(ActivityPrice, PriceAdmin)

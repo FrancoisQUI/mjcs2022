@@ -1,0 +1,20 @@
+`<div class="navbar-menu">
+    <div class="navbar-end">
+            <a class="navbar-item" href="{% url "activities:activity_list" %}">
+                Activités
+            </a>
+        {% for category in categories %}
+            <div class="navbar-item has-dropdown is-hoverable">
+                {% if category.name != "Pied de page" %}
+                    <a class="navbar-link">{{ category.name }}</a>
+                    <div class="navbar-dropdown">
+                        {% for page in pages %}
+                            {% if page.category == category and page.visibility %}
+                                <a class="navbar-item" href="{% url 'pages:page' slug=page.slug %}">{{ page.title }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>{% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>`

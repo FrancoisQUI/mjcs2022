@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h2>Activités</h2>
+
+{% for type in activity_type %}
+    <h3>{{ type.name }}</h3>
+    <ul>
+{% for activity in activities %}
+        {% if activity.type == type and activity.visibility %}
+            <li><a href="{% url 'activities:activity_detail' slug=activity.slug %}">{{ activity.name }}</a></li>
+        {% endif %}
+{% endfor %}
+    </ul>
+{% endfor %}
+
+{% endblock %}
+

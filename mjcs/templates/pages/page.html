@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+{{ page.title }}
+{% endblock %}
+<div class="content">
+    {% block main_content %}
+
 {% if page.header_image.url != none %}
 <img src="{{ page.header_image.url }}" alt="{% if page.header_image.description %}{{ page.header_image.description }}{% else %}pas de description{% endif %}
 ">
 {% endif %}
-
 {{ page.content|safe }}
-</body>
-</html>
+{% endblock %}
+</div>

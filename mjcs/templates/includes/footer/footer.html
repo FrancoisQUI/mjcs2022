@@ -1,0 +1,14 @@
+<div id="footer_pages" class="content container">
+
+</div>
+<div id="sponsors" class="content container end is-half">
+    {% for sponsor in sponsors %}
+        <div>
+            <a href="{{ sponsor.url }}" target="_blank" class="sponsor"
+              style="background-image: url({{ sponsor.image }});">
+                <img class="image is-128x128" src="{{ sponsor.image.url }}"
+                     alt="{{ sponsor.name }}">
+            </a>
+        </div>
+    {% endfor %}
+</div>

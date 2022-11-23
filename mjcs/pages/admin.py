@@ -29,6 +29,5 @@ class MainPageAdmin(admin.ModelAdmin):
 
 admin.site.register(Page, PageAdmin)
 admin.site.register(PageCategory, PageCategoryAdmin)
-admin.site.register(MainPage)
 
 

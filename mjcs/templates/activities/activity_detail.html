@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h2>{{ activity.name }}</h2>
+
+{% if activity.header_image %}
+<img src="{{ activity.header_image.url }}"
+     alt="{{ activity.name }}">
+{% endif %}
+
+{% if activity.description %}
+    {{ activity.description|safe }}
+{% endif %}
+
+{% if activity.sessions.all %}
+    {% for session in activity.sessions.all %}
+
+    {% endfor %}
+{% endif %}
+
+
+
+{% if activity.prices.all %}
+<h3>Prix</h3>
+    <table>
+        <tr>
+            <th>Prix</th>
+            <th>Info</th>
+            <th>Carte de MJCS</th>
+        </tr>
+        {% for price in activity.prices.all %}
+            <tr>
+                <td>{{ price.price }} par {{ price.duration }}</td>
+                <td>{{ price.note }}</td>
+                <td>{{ price.association_subscription }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% if activity.sessions.all %}
+<h3>Sessions</h3>
+    <table>
+        <tr>
+            <th>Jour</th>
+            <th>Heure début</th>
+            <th>Heure fin</th>
+            <th>Age</th>
+        </tr>
+        {% for session in activity.sessions.all %}
+            <tr>
+                <td>{{ session.day }}</td>
+                <td>{{ session.start_time }}</td>
+                <td>{{ session.end_time }}</td>
+                <td>de {{ session.age_min }} à {{ session.age_max }} ans </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+
+{% endblock %}
+
+
+
